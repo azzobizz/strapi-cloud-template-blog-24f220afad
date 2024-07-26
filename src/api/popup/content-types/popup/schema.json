@@ -1,0 +1,157 @@
+{
+  "kind": "collectionType",
+  "collectionName": "popups",
+  "info": {
+    "singularName": "popup",
+    "pluralName": "popups",
+    "displayName": "Popup",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "content": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "richtext",
+      "required": true
+    },
+    "ctaLabel": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    },
+    "ctaLink": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "default": "#",
+      "required": true
+    },
+    "startDateTime": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "datetime",
+      "required": true
+    },
+    "endDateTime": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "datetime"
+    },
+    "scopeDays": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "customField",
+      "options": [
+        "All:all",
+        "Monday:1",
+        "Tuesday:2",
+        "Wednesday:3",
+        "Thursday:4",
+        "Friday:5",
+        "Saturday:6",
+        "Sunday:0"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "scopeCountries": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "customField",
+      "options": [
+        "All:all",
+        "France:fr",
+        "Spain:es",
+        "Italy:it",
+        "Portugal:pt",
+        "Germany:de",
+        "United Kingdom:uk",
+        "Netherlands:nl",
+        "Belgium:be",
+        "Luxembourg:lu",
+        "Austria:at",
+        "Czech Republic:cz",
+        "Switzerland:ch",
+        "Romania:ro",
+        "Sweden:se",
+        "Denmark:dk",
+        "Poland:pl",
+        "Greece:gr",
+        "Ireland:ie",
+        "Hungary:hu",
+        "Finland:fi",
+        "Slovakia:sk",
+        "Norway:no"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "scopeApps": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "customField",
+      "options": [
+        "All:all",
+        "autobizOffice",
+        "autobizClic2Sell",
+        "autobizCarcheck",
+        "autobizTrade",
+        "autobizLeads",
+        "autobizMarket"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "ctaCloseLabel": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string",
+      "required": true
+    }
+  }
+}

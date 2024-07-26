@@ -362,6 +362,258 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiBannerBanner extends Schema.CollectionType {
+  collectionName: 'banners';
+  info: {
+    singularName: 'banner';
+    pluralName: 'banners';
+    displayName: 'Banner';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    contentFr: Attribute.RichText;
+    backgroundColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    textColor: Attribute.String &
+      Attribute.Required &
+      Attribute.CustomField<'plugin::color-picker.color'>;
+    adminMemo: Attribute.String & Attribute.Required;
+    contentDe: Attribute.RichText;
+    contentEn: Attribute.RichText;
+    contentEs: Attribute.RichText;
+    contentIt: Attribute.RichText;
+    contentNl: Attribute.RichText;
+    contentPt: Attribute.RichText;
+    scopeApps: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'All:all',
+          'autobizOffice',
+          'autobizClic2Sell',
+          'autobizCarcheck',
+          'autobizTrade',
+          'autobizLeads',
+          'autobizMarket'
+        ]
+      >;
+    scopeCountries: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'All:all',
+          'France:fr',
+          'Spain:es',
+          'Italy:it',
+          'Portugal:pt',
+          'Germany:de',
+          'United Kingdom:uk',
+          'Netherlands:nl',
+          'Belgium:be',
+          'Luxembourg:lu',
+          'Austria:at',
+          'Czech Republic:cz',
+          'Switzerland:ch',
+          'Romania:ro',
+          'Sweden:se',
+          'Denmark:dk',
+          'Poland:pl',
+          'Greece:gr',
+          'Ireland:ie',
+          'Hungary:hu',
+          'Finland:fi',
+          'Slovakia:sk',
+          'Norway:no'
+        ]
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::banner.banner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPopupPopup extends Schema.CollectionType {
+  collectionName: 'popups';
+  info: {
+    singularName: 'popup';
+    pluralName: 'popups';
+    displayName: 'Popup';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    content: Attribute.RichText &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ctaLabel: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    ctaLink: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Attribute.DefaultTo<'#'>;
+    startDateTime: Attribute.DateTime &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    endDateTime: Attribute.DateTime &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    scopeDays: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'All:all',
+          'Monday:1',
+          'Tuesday:2',
+          'Wednesday:3',
+          'Thursday:4',
+          'Friday:5',
+          'Saturday:6',
+          'Sunday:0'
+        ]
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    scopeCountries: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'All:all',
+          'France:fr',
+          'Spain:es',
+          'Italy:it',
+          'Portugal:pt',
+          'Germany:de',
+          'United Kingdom:uk',
+          'Netherlands:nl',
+          'Belgium:be',
+          'Luxembourg:lu',
+          'Austria:at',
+          'Czech Republic:cz',
+          'Switzerland:ch',
+          'Romania:ro',
+          'Sweden:se',
+          'Denmark:dk',
+          'Poland:pl',
+          'Greece:gr',
+          'Ireland:ie',
+          'Hungary:hu',
+          'Finland:fi',
+          'Slovakia:sk',
+          'Norway:no'
+        ]
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    scopeApps: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        [
+          'All:all',
+          'autobizOffice',
+          'autobizClic2Sell',
+          'autobizCarcheck',
+          'autobizTrade',
+          'autobizLeads',
+          'autobizMarket'
+        ]
+      > &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
+    ctaCloseLabel: Attribute.String &
+      Attribute.Required &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::popup.popup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::popup.popup',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::popup.popup',
+      'oneToMany',
+      'api::popup.popup'
+    >;
+    locale: Attribute.String;
+  };
+}
+
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -798,6 +1050,8 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::banner.banner': ApiBannerBanner;
+      'api::popup.popup': ApiPopupPopup;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;

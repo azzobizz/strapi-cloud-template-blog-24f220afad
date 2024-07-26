@@ -1,0 +1,99 @@
+{
+  "kind": "collectionType",
+  "collectionName": "banners",
+  "info": {
+    "singularName": "banner",
+    "pluralName": "banners",
+    "displayName": "Banner",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "contentFr": {
+      "type": "richtext",
+      "pluginOptions": {}
+    },
+    "backgroundColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color",
+      "required": true
+    },
+    "textColor": {
+      "type": "customField",
+      "regex": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+      "customField": "plugin::color-picker.color",
+      "required": true
+    },
+    "adminMemo": {
+      "pluginOptions": {},
+      "type": "string",
+      "required": true
+    },
+    "contentDe": {
+      "type": "richtext"
+    },
+    "contentEn": {
+      "type": "richtext"
+    },
+    "contentEs": {
+      "type": "richtext"
+    },
+    "contentIt": {
+      "type": "richtext"
+    },
+    "contentNl": {
+      "type": "richtext"
+    },
+    "contentPt": {
+      "type": "richtext"
+    },
+    "scopeApps": {
+      "type": "customField",
+      "options": [
+        "All:all",
+        "autobizOffice",
+        "autobizClic2Sell",
+        "autobizCarcheck",
+        "autobizTrade",
+        "autobizLeads",
+        "autobizMarket"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    },
+    "scopeCountries": {
+      "type": "customField",
+      "options": [
+        "All:all",
+        "France:fr",
+        "Spain:es",
+        "Italy:it",
+        "Portugal:pt",
+        "Germany:de",
+        "United Kingdom:uk",
+        "Netherlands:nl",
+        "Belgium:be",
+        "Luxembourg:lu",
+        "Austria:at",
+        "Czech Republic:cz",
+        "Switzerland:ch",
+        "Romania:ro",
+        "Sweden:se",
+        "Denmark:dk",
+        "Poland:pl",
+        "Greece:gr",
+        "Ireland:ie",
+        "Hungary:hu",
+        "Finland:fi",
+        "Slovakia:sk",
+        "Norway:no"
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
+    }
+  }
+}
